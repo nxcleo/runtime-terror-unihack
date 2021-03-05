@@ -5,7 +5,7 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
 const isDev = process.env.NODE_ENV !== 'production';
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
