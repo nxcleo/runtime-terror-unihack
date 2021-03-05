@@ -1,6 +1,10 @@
 import React from 'react';
 import CovidPointContext from '../contexts/CovidPointContext';
 
+// This file is example of how to access/modify global variable CovidPoint
+
+// Method 1: Function Component
+
 const CovidPointExample = () => {
 
     const increase = (pt, change) => {
@@ -19,8 +23,8 @@ const CovidPointExample = () => {
                 return (
                     <>
                         <p>Your COVID points: { point }</p>
-                        <button onClick={() => { increase(point, onPointChange) }}>Increase</button>
-                        <button onClick={() => { decrease(point, onPointChange) }}>Decrease</button>  
+                        <button onClick={() => increase(point, onPointChange) }>Increase</button>
+                        <button onClick={() => decrease(point, onPointChange) }>Decrease</button>  
                     </>
                 );
             }}
@@ -28,5 +32,36 @@ const CovidPointExample = () => {
     );
 }
 
+// Method 2: Class Component
+
+/*
+
+class CovidPointExample extends React.Component {
+    increase = (pt, change) => {
+        change(pt + 1);
+    }
+
+    decrease = (pt, change) => {
+        change(pt - 1);
+    }
+
+    render() {
+        return (
+            <CovidPointContext.Consumer>
+                {({ point, onPointChange }) => {
+                    return (
+                        <>
+                            <p>Your COVID points: { point }</p>
+                            <button onClick={() => this.increase(point, onPointChange) }>Increase</button>
+                            <button onClick={() => this.decrease(point, onPointChange) }>Decrease</button>  
+                        </>
+                    );
+                }}
+            </CovidPointContext.Consumer>
+        );
+    }
+}
+
+*/
 
 export default CovidPointExample;
