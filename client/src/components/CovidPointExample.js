@@ -7,7 +7,7 @@ const CovidPointExample = () => {
         change(pt + 1);
     }
 
-    const decrease = (p, change) => {
+    const decrease = (pt, change) => {
         change(pt - 1);
     }
 
