@@ -1,5 +1,5 @@
 import React from 'react';
-import QrReader from 'react-qr-reader'
+import QrReader from 'react-qr-reader';
 
 // Example of Class Component
 
