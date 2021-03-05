@@ -3,6 +3,16 @@ import React, {useState} from 'react';
 // import Scan from './Scan';
 import QrReader from "react-qr-reader";
 
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
 
 
 const CheckinPage = () => {
@@ -105,6 +115,13 @@ const CheckinPage = () => {
                 <>
                     <p>Selected Location: {value.place_data.name}</p>
                     <p>Cost: {value.place_data.base_cost}</p>
+
+                    <a href="/home">
+                        <button>
+                            Cancel
+                        </button>
+                    </a>
+
                     <button onClick={OnConfirm}>
                         Confirm
                     </button>
