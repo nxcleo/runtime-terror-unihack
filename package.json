@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server",
     "full-build": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "build": "cd client/ && npm run build"
+    "build": "cd client/ && npm run build",
+    "client": "cd client/ && npm start"
   },
   "repository": {
     "type": "git",
