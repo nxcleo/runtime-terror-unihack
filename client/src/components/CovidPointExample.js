@@ -3,12 +3,12 @@ import CovidPointContext from '../contexts/CovidPointContext';
 
 const CovidPointExample = () => {
 
-    const increase = (point, onPointChange) => {
-        onPointChange(point + 1);
+    const increase = (pt, change) => {
+        change(pt + 1);
     }
 
-    const decrease = (point, onPointChange) => {
-        onPointChange(point - 1);
+    const decrease = (p, change) => {
+        change(pt - 1);
     }
 
     // Using Consumer as the root HTML tag, and put everything else inside the callback function of it
