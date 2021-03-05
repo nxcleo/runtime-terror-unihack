@@ -2,13 +2,13 @@
 
 ## Starting commands:
 
-* **npm install**
+* **npm install** (install all packages for server-side)
 
 * **npm run full-build**   (Only for first-time)
 
-* **npm run build** (After full-build, could just use this command after every update in "client" folder, except "client/package.json")
+- **npm run build** (After full-build, could just use this command after every update in "client" folder, except "client/package.json")
 
-* **npm start**
+* **npm start** (start the nodeJS server)
 
 * goto "localhost:8080" in browser
 
