@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import CardView from '../util/CardView';
+import HistoryContext from '../../contexts/HistoryContext';
 
 const historyHardCoding = () => {
     return [
@@ -50,20 +51,24 @@ const HistoryPage = (props) => {
             </Typography>
             <hr /><br/>
             <Grid container spacing={4} direction="row" alignItems="stretch">
-                {historyHardCoding().map(record => (
-                    <Grid item key={record.id} xs={12} md={6}>
-                        <CardView cardContent={
-                            {
-                                headerLabel: record.time,
-                                mainTitle: record.location,
-                                subTitle: "",
-                                desc: record.desc,
-                                href: record.href,
-                                linkText: "Details"
-                            }
-                        } />
-                    </Grid>
-                ))}
+                <HistoryContext.Consumer>
+                    { ({ records }) => {
+                        return records.map(record => (
+                            <Grid item key={record.id} xs={12} md={6}>
+                                <CardView cardContent={
+                                    {
+                                        headerLabel: record.time,
+                                        mainTitle: record.location,
+                                        subTitle: "",
+                                        desc: record.desc,
+                                        href: record.href,
+                                        linkText: "Details"
+                                    }
+                                } />
+                            </Grid>
+                        ))
+                    }}
+                </HistoryContext.Consumer>
             </Grid>
         </div>
     );
