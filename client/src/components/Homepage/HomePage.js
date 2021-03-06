@@ -1,11 +1,16 @@
 import React from 'react';
+import CovidPointContext from '../../contexts/CovidPointContext';
 
 class HomePage extends React.Component {
 
   getRemainingPoints() {
-    let points = 30;
     // TODO: Fetch the points of this user from the database.
-    return points;
+    // Currently fetching from hardcoded context data.
+    return (<CovidPointContext.Consumer>
+      {({ point }) => {
+        return (<p>{ point }</p>);
+      }}
+    </CovidPointContext.Consumer>);
   }
 
   getCovidCases() {
