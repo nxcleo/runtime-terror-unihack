@@ -6,6 +6,7 @@ const numCPUs = require('os').cpus().length;
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
+const cors = require('cors');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 443;
@@ -34,6 +35,12 @@ if (!isDev && cluster.isMaster) {
     app.set("view engine","ejs");
   
     // Priority serve any static files.
+    let allowCrossDomain = function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', "*");
+        res.header('Access-Control-Allow-Headers', "*");
+        next();
+    };
+    app.use(cors({origin: '*'}));
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(express.static(path.resolve(__dirname, 'client/build')));
