@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CovidPointContext from '../../contexts/CovidPointContext';
 
 class HomePage extends React.Component {
@@ -37,7 +38,7 @@ class HomePage extends React.Component {
           <p>{this.getCovidCases()}</p>
         </div>
         <div>
-          <button>Check In</button>
+          <Link to="/checkin"><button>Check In</button></Link>
         </div>
       </div>
     )
