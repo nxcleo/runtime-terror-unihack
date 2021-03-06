@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Redirect, Switch } from 'react-router-dom';
 import history from '../contexts/history';
 import { CovidPointStore } from '../contexts/CovidPointContext';
+import { HistoryStore } from '../contexts/HistoryContext';
 import './App.css';
 
 import NavBar from './NavBar';
@@ -16,7 +17,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <CovidPointStore>
+            <CovidPointStore> <HistoryStore>
                 <div className="App">
 
                 <NavBar />
@@ -36,7 +37,7 @@ class App extends React.Component {
                 </Router>
 
                 </div>
-            </CovidPointStore>
+            </HistoryStore> </CovidPointStore>
         );
     }
   
