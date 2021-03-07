@@ -1,13 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Typography from "@material-ui/core/Typography";
+import {makeStyles} from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
-import CardView from "../util/CardView";
-import Icon from '@material-ui/core/Icon';
-
-
+import './discover_styles.css';
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,8 +24,8 @@ const historyHardCoding = () => {
             time: "Today",
             img: "/img/pt_chadstone.PNG",
             loc: {
-                "lat": -37.9219795,
-                "lng": 145.083513
+                "lat": -37.8858532,
+                "lng": 145.0847703
             }
         },
         {
@@ -52,11 +46,10 @@ const historyHardCoding = () => {
             desc: "Cnr La Trobe St &, Swanston St, Melbourne VIC 3000, Australia",
             base_cost: 15,
             time: "T",
-            href: "https://www.melbournecentral.com.au/home/",
             img: "/img/pt_mc.PNG",
             loc: {
-                "lat": -37.9219795,
-                "lng": 145.083513
+                "lat": -37.8102361,
+                "lng": 144.9627652
             }
         },
         {
@@ -67,21 +60,20 @@ const historyHardCoding = () => {
             time: "Last Week",
             img: "/img/pt_chadstone.PNG",
             loc: {
-                "lat": -37.9219795,
-                "lng": 145.083513
+                "lat": -37.8219332,
+                "lng": 144.9455145
             }
         },
         {
             id: 5,
             location: "Monash University",
-            desc: "No case detected recently",
+            desc: "Wellington Rd, Clayton VIC 3800, Australia",
             base_cost: 30,
             time: "Last Week",
-            href: "https://www.monash.edu/",
             img: "/img/pt_ms.PNG",
             loc: {
-                "lat": -37.9219795,
-                "lng": 145.083513
+                "lat": -37.9109574,
+                "lng": 145.1371751
             }
         }
     ];
@@ -123,7 +115,7 @@ const DiscoverPage = (props) => {
 
     function updateResultsByLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition( (position) => {
+            navigator.geolocation.getCurrentPosition((position) => {
                 updateResults("location=" + position.coords.latitude + "," + position.coords.longitude)
             });
         } else {
@@ -142,35 +134,50 @@ const DiscoverPage = (props) => {
 
     return (
         <div className={classes.root}>
-            <Typography variant="h3" align="center" className={classes.title}>
-                Discover Places
-            </Typography>
-            <hr /><br/>
+            <div id="e60_7"><span id="e60_8">Discover Places</span><span id="e60_9">40</span>
+                <div id="e60_12">
+                    <a href="/home">
+                        <span className="material-icons" style={{"font-size": "xxx-large", color: "rgba(3, 4, 94, 1)"}}>home</span>
+                    </a>
+                </div>
+                <div id="e60_13">
+                    <Grid container spacing={4} direction="row" alignItems="stretch">
+                        {historyHardCoding().map(record => (
+                            <Grid item key={record.id} xs={12} md={6} style={{"height": "280px"}}>
 
-            <Grid container spacing={4} direction="row" alignItems="stretch">
-                {historyHardCoding().map(record => (
-                    <Grid item key={record.id} xs={12} md={6}>
-                        <CardView cardContent={
-                            {
-                                headerLabel: "Contact Cost: " + record.base_cost,
-                                mainTitle: record.location,
-                                subTitle: "",
-                                desc: record.desc,
-                                href: record.href,
-                                linkText: "Details",
-                                img: record.img
-                            }
-                        } >
+                                <div className="de60_17">
+                                    <div className="dei60_17_3_471">
+                                        <span className="dei60_17_3_473">{record.location}</span>
+                                        <span className="dei60_17_3_475" style={{"top": "50px"}}>{record.desc}</span>
+                                        <img className="dei60_17_3_476" src={record.img}/>
+                                        <a className="dei60_17_3_478" href={
+                                            "/checkin?place_selected=1&" +
+                                                "place_id="+ record.id + "&" +
+                                                "name="+ record.location + "&" +
+                                                "base_cost="+ record.base_cost + "&" +
+                                                "lat="+ record.loc.lat + "&" +
+                                                "lng="+ record.loc.lng + "&" +
+                                                "desc="+ record.desc
 
-                        </CardView>
+                                        }>
+                                            <div className="de9_1081">
+                                                <div className="de9_1079"></div>
+                                                <span className="de9_1080">Check-in</span></div>
+                                        </a>
+                                        <div className="de60_18">
+                                            <div className="de60_19">
+                                                <div className="de60_20"></div>
+                                                <span className="de60_21">{record.base_cost}</span></div>
+                                        </div>
 
-                        <Button variant="contained" color="default"
-                                href={"/checkin?place_selected=1&name="+ record.location + "&bc="+record.base_cost } target="_blank" >
-                            Check in
-                        </Button>
+                                    </div>
+                                </div>
+
+                            </Grid>
+                        ))}
                     </Grid>
-                ))}
-            </Grid>
+                </div>
+            </div>
         </div>
     );
 

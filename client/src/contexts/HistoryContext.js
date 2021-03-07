@@ -30,6 +30,7 @@ export class HistoryStore extends React.Component {
 
     resetRecord = () => {
         this.setState({records: []});
+        cookies.set('history-record', this.state.records, { path: '/' });
     }
 
     render() {

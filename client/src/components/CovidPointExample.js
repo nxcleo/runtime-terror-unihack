@@ -9,18 +9,21 @@ import HistoryContext from '../contexts/HistoryContext';
 const CovidPointExample = () => {
 
     const increase = (pt, change) => {
-        change(pt + 1);
+        change(pt + 4);
     }
 
     const decrease = (pt, change) => {
-        change(pt - 1);
+        change(pt - 4);
     }
 
     const addTestItem = (addItem) => {
+        let d = new Date();
         addItem({
             id: Math.random(),
-            location: "Test",
-            desc: "This is a test record"
+            location: "Monash University",
+            desc: "Wellington Rd, Clayton VIC 3800, Australia",
+            base_cost: 30,
+            time: d.toDateString(),
         });
     }
 
@@ -35,8 +38,8 @@ const CovidPointExample = () => {
                             return (
                                 <>
                                     <p>Your COVID points: { point }</p>
-                                    <button onClick={() => increase(point, onPointChange) }>Increase</button>
-                                    <button onClick={() => decrease(point, onPointChange) }>Decrease</button>
+                                    <button onClick={() => increase(point, onPointChange) }>CP Increase</button>
+                                    <button onClick={() => decrease(point, onPointChange) }>CP Decrease</button>
                                     <button onClick={() => addTestItem(addItem) }>Add 'Test' History record</button>
                                     <button onClick={() => resetRecord() }>Empty record list</button>
                                 </>

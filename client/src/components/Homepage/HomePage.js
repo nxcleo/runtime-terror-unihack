@@ -28,23 +28,13 @@ class HomePage extends React.Component {
 
             <div>
                 <div id="e4_106"><span id="e4_109">Welcome, Guest</span>
-                    <div id="e4_311">
-                        <div id="e4_312">
-                            <div id="e4_313">
-                                <div id="e4_314"></div>
-                                <div id="e4_315"></div>
-                                <div id="e4_316"></div>
-                                <div id="e4_317"></div>
-                            </div>
-                        </div>
-                    </div>
                     <div id="e9_1896"></div>
                     <div id="e20_2269">
                         <div id="e20_2211">
                             <a href="/discover">
                                 <div id="e9_1560"></div>
+                                <span id="e9_1561">Search Locations</span><span id="e9_1617">See the point cost of your essential locations.</span>
                             </a>
-                            <span id="e9_1561">Search Locations</span><span id="e9_1617">See the point cost of your essential locations.</span>
                             <div id="e20_2199">
                                 <span className="material-icons" style={{"font-size": "xxx-large", color: "rgba(3, 4, 94, 1)"}}>search</span>
                             </div>
@@ -54,8 +44,8 @@ class HomePage extends React.Component {
                         <div id="e20_2212">
                             <a href="/history">
                                 <div id="e20_2213"></div>
+                                <span id="e20_2214">Check-in History</span><span id="e20_2215">See the locations you checked into in the past.</span>
                             </a>
-                            <span id="e20_2214">Check-in History</span><span id="e20_2215">See the locations you checked into in the past.</span>
                         </div>
                     </div>
                     <div id="e20_2268">
@@ -63,8 +53,9 @@ class HomePage extends React.Component {
                             <div id="e20_2240">
                                 <a href="/checkin">
                                     <div id="e20_2241"/>
+                                    <span id="e20_2242">Check-in </span><span id="e20_2243">Spend points on the locations essential to you</span>
                                 </a>
-                                <span id="e20_2242">Check-in </span><span id="e20_2243">Spend points on the locations essential to you</span>
+
                             </div>
                             <div id="e20_2244"></div>
                         </div>

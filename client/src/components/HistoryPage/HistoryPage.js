@@ -5,30 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CardView from '../util/CardView';
 import HistoryContext from '../../contexts/HistoryContext';
+import './styles.css';
 
-const historyHardCoding = () => {
-    return [
-        {
-            id: 1,
-            location: "Coles",
-            desc: "No case detected recently",
-            time: "Today"
-        },
-        {
-            id: 2,
-            location: "Woolworth",
-            desc: "No case detected recently",
-            time: "Today"
-        },
-        {
-            id: 3,
-            location: "Monash University",
-            desc: "No case detected recently",
-            time: "Last Week",
-            href: "https://www.monash.edu/"
-        }
-    ];
-}
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -46,30 +24,51 @@ const HistoryPage = (props) => {
 
     return (
         <div className={classes.root}>
-            <Typography variant="h3" align="center" className={classes.title}>
-                History Record
-            </Typography>
-            <hr /><br/>
-            <Grid container spacing={4} direction="row" alignItems="stretch">
-                <HistoryContext.Consumer>
-                    { ({ records }) => {
-                        return records.map(record => (
-                            <Grid item key={record.id} xs={12} md={6}>
-                                <CardView cardContent={
-                                    {
-                                        headerLabel: record.time,
-                                        mainTitle: record.location,
-                                        subTitle: "",
-                                        desc: record.desc,
-                                        href: record.href,
-                                        linkText: "Details"
-                                    }
-                                } />
-                            </Grid>
-                        ))
-                    }}
-                </HistoryContext.Consumer>
-            </Grid>
+            <div id="e60_7"><span id="e60_8">History Record</span><span id="e60_9">40</span>
+                <div id="e60_12">
+                    <a href="/home">
+                        <span className="material-icons" style={{"font-size": "xxx-large", color: "rgba(3, 4, 94, 1)"}}>home</span>
+                    </a>
+                </div>
+                <div id="e60_13">
+                    <Grid container spacing={1} direction="row" alignItems="stretch">
+                        <HistoryContext.Consumer>
+                            { ({ records }) => {
+                                console.log(records)
+                                return records.map(record => (
+                                    <Grid item key={record.id} xs={12} md={6}>
+
+                                        <div className="e60_17">
+                                            <div className="ei60_17_3_471">
+                                                <span className="ei60_17_3_473">{record.location}</span>
+                                                <span className="ei60_17_3_475">You checked in on {record.time}</span>
+                                                <span className="ei60_17_3_475" style={{"top": "50px"}}>{record.desc}</span>
+                                                <span
+                                                className="ei60_17_3_477">There are no current outbreaks at this location</span>
+
+                                                <div className="e60_18">
+                                                    <div className="e60_19">
+                                                        <div className="e60_20"/>
+                                                        <span className="e60_21">{record.base_cost}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </Grid>
+                                ))
+                            }}
+                        </HistoryContext.Consumer>
+                    </Grid>
+
+
+
+
+                </div>
+            </div>
+
+
         </div>
     );
 
