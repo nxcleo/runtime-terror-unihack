@@ -34,9 +34,9 @@ const HistoryPage = (props) => {
                     <Grid container spacing={1} direction="row" alignItems="stretch">
                         <HistoryContext.Consumer>
                             { ({ records }) => {
-                                console.log(records)
+                                console.log(records);
                                 return records.map(record => (
-                                    <Grid item key={record.id} xs={12} md={6}>
+                                    <Grid item key={record.id} xs={12} md={6} style={{"max-width":"100%"}}>
 
                                         <div className="e60_17">
                                             <div className="ei60_17_3_471">

@@ -143,7 +143,7 @@ const DiscoverPage = (props) => {
                 <div id="e60_13">
                     <Grid container spacing={4} direction="row" alignItems="stretch">
                         {historyHardCoding().map(record => (
-                            <Grid item key={record.id} xs={12} md={6} style={{"height": "280px"}}>
+                            <Grid item key={record.id} xs={12} md={6} style={{"height": "280px", "max-width":"100%"}}>
 
                                 <div className="de60_17">
                                     <div className="dei60_17_3_471">

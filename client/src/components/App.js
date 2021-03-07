@@ -20,10 +20,6 @@ class App extends React.Component {
             <CovidPointStore> <HistoryStore>
                 <div className="App">
 
-                <NavBar />
-
-                <CovidPointExample />
-
                 <Router history={history}>
                     <Switch>
                         <Route path="/home" exact component={HomePage} />
@@ -35,6 +31,12 @@ class App extends React.Component {
                         </Route>
                     </Switch>
                 </Router>
+                <div style={{position: "absolute", top: "850px"}}>
+                    <NavBar />
+
+                    <CovidPointExample />
+                </div>
+
 
                 </div>
             </HistoryStore> </CovidPointStore>
