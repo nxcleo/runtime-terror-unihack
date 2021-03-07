@@ -1,5 +1,6 @@
 # CovFree
-### UNIHack 2021 - TEAM #38 Runtime Terror (Aaron Jiang, Anna Giang, Katherine Moffat, Kevin Cai)
+### UNIHack 2021
+### Team #38 Runtime Terror - Aaron Jiang, Anna Giang, Katherine Moffat, Kevin Cai
 
 ## Figma Prototype
 Check out our Figma prototype [here](https://www.figma.com/proto/FNLITO0MA9jumtGfu2mgFO/iOS-App-Wireframes-Community?node-id=4%3A1556&scaling=min-zoom).
